@@ -6,17 +6,27 @@
 
 <%@page import="util.Conf"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Cliente</title>
-    </head>
-    <body>
-        <h1>Cadastro de clientes </h1>
-        
-        
-        <%
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>FRPTRANS - Qualidade em Transporte</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<br>
+<br>
+
+ <h3 class="page-header">Cadastro Cliente</h3>
+ <%
             String msg = (String) request.getAttribute("msg");
             if(msg != null){
                
@@ -25,34 +35,95 @@
         
         %>
         <font color="blue"><%=msg %></font>
-        <a href="<%=Conf.getCaminhoContexto()%>login_cliente.jsp">Entrar</a>
-
         <% } %>
         
         <form action="<%=Conf.getCaminhoContexto()%>ControleCliente" method="POST">
-            
-            Cpf : <input type="text" name="txtCpf"><br/>
-            Nome : <input type="text" name="txtNome"><br/>
-            Data de Nascimento:  <input type="date" name="txtData_Nasc"><br/>
-            Rg : <input type="text" name="txtRg"><br/>
-            Celular : <input type="text" name="txtCelular"><br/>
-            Endereço : <input type="text" name="txtEndereco"><br/>
-            <br></br>
-             <br></br>
-              <br></br>
-             Login : <input type="text" name="txtLogin"><br/>
-             Senha : <input type="password" name="txtSenha"><br/>
-            
-           
-                
-                 </select><br/>
-                 
-                 <input type="submit" value="Cadastrar" name="acao" >
-            
-         </form>
-        <br>
-        <a href="<%=Conf.getCaminhoContexto() %>login_cliente.jsp">Voltar</a>
-        
-        
-    </body>
+             <div id="main" class="container-fluid">
+ 
+  <!-- area de campos do form -->
+  <div class="row">
+ <div class="form-group col-md-4">
+   <label for="campo1">Nome </label>
+   <input type="text" class="form-control" name="txtNome">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo2">Login</label>
+   <input type="text" class="form-control" name="txtLogin">
+ </div>
+ 
+</div>
+<div class="row">
+ <div class="form-group col-md-4">
+   <label for="campo4">Senha</label>
+   <input type="password" class="form-control" name="txtSenha">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo5">CPF</label>
+   <input type="text" class="form-control" name="txtCpf">
+ </div>
+ <div class="form-group col-md-4">
+   <label for="campo6">Endereço</label>
+   <input type="text" class="form-control" name="txtEndereco">
+ </div>
+ 
+ </div>
+</div>
+<div class="row">
+ <div class="form-group col-md-4">
+   <label for="campo7">Data de Nascimento</label>
+   <input type="Date" class="form-control" name="txt_Data_Nasc">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo8">RG</label>
+   <input type="text" class="form-control" name="txtRg">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo9">Celular</label>
+   <input type="Tel" class="form-control" name="txtCelular">
+ </div>
+</div>
+
+  <hr />
+  <div id="actions" class="row">
+    <div class="col-md-12">
+      <button type="submit" value="Cadastrar" name="acao" class="btn btn-primary">Salvar</button>
+      <a href="index.html" class="btn btn-default">Cancelar</a>
+    </div>
+  </div>
+</form>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div id="main" class="container-fluid">
+  <div class="navbar-header">
+ 
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+   <a class="navbar-brand" href="#">FRPTRANS</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+   <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">Início</a></li>
+    <li><a href="#">Opções</a></li>
+    <li><a href="#">Minha Conta</a></li>
+    <li><a href="#">Ajuda</a></li>
+	
+
+
+   </ul>
+  </div>
+ </div>
+</nav>
+  
+
+  <!-- jQuery (necessario para os plugins Javascript do Bootstrap) -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
 </html>

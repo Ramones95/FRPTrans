@@ -11,8 +11,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>FRPTRANS - QUALIDADE EM TRANSPORTE</title>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+       <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <%
@@ -23,9 +27,13 @@
 
             if (cliente != null && mostrar == null) {
         %>
+        <br>
+        <br>
+        <br>
+        <br>
         <h1>Bem-Vindo, <%= cliente.getLogin()%> !  </h1> 
 
-        <h3>Diite seu CPF para consulta de seus dados</h3>
+        <h3>Digite seu CPF para consulta de seus dados</h3>
         <form action="<%=Conf.getCaminhoContexto()%>ControleCliente" method="POST">
             Cpf : <input type="text" name="txtCpf"><br/>
 
@@ -41,8 +49,9 @@
 
         <%} else if (cliente != null && mostrar != null) {    %>
 
-        <table>
-             <thead style="background-color:black; color: #FFF">
+        <div class="table-responsive">
+           <table class="table table-striped table-bordered table-hover">
+             <thead>
             <th>Nome</th>
             <th>Data de nascimento</th>
             <th>Rg</th>
@@ -58,9 +67,6 @@
 
         <h1>Meus Dados:</h1> 
 
-
-
-        <tr style="background-color:highlight; color: black">
             <td><%=r.getNome()%></td>
             <td><%=r.getData_nasc()%></td>
             <td><%=r.getRg()%></td>
@@ -81,10 +87,36 @@
         <%}%>
     </table>
     <br></br>
-    <a href="<%=Conf.getCaminhoContexto()%>/cliente/principal_cliente.jsp"/>Voltar</a>
+    <button> <a href="<%=Conf.getCaminhoContexto()%>/cliente/principal_cliente.jsp"/>Voltar</a> </button>
 
 <%}%>
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div id="main" class="container-fluid">
+  <div class="navbar-header">
+ 
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+   <a class="navbar-brand" href="#">FRPTRANS</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+   <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">Início</a></li>
+    <li><a href="#">Opções</a></li>
+    <li><a href="#">Minha Conta</a></li>
+    <li><a href="<%=Conf.getCaminhoContexto()%>ControleAcessoCliente?acao=Sair">Sair</a></li>
+    
 
+     </ul>
+  </div>
+  </div>
+</nav>
+        <!-- jQuery (necessario para os plugins Javascript do Bootstrap) -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
 
 
